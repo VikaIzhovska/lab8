@@ -1,0 +1,50 @@
+<!--Продукти-->
+<br>
+<br>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group col-sm-3"></div>
+    <div class="form-group col-sm-3">
+        <label for="name">Назва</label>
+        <input type="text" class="form-control" formControlName="name" id="Name" aria-describedby="Name" placeholder="Введіть назву">
+    </div>
+    <div class="form-group col-sm-3">
+        <label for="price">Ціна</label>
+        <input type="text" class="form-control" formControlName="price" id="Price" aria-describedby="Price" placeholder="Введіть ціну">
+    </div>
+    <div class="form-group col-sm-3">
+        <br>
+        <button type="submit" class="btn btn-success">Додати</button>
+    </div>
+    <div class="form-group col-sm-3"></div>
+</form>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <!--<td>ID</td>-->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Назва</td>
+            <td>Ціна</td>
+            <td>Дії</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let item of products'>
+            <!--<td>{{ item._id }}</td>-->
+            <td ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="onDelete(item._id)">Видалити</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
